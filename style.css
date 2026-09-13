@@ -1,44 +1,111 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Inter', sans-serif; color: #222; line-height: 1.6; }
 
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: #1a1a1a;
+  line-height: 1.65;
+  background: #fff;
+}
+
+h1 { font-size: 2.8rem; margin-bottom: 12px; }
+h2 { font-size: 2rem; margin-bottom: 24px; text-align: center; }
+h2::after {
+  content: ''; display: block; width: 60px; height: 3px;
+  background: #c44569; margin: 12px auto 0; border-radius: 2px;
+}
+p { margin-bottom: 12px; }
+
+/* HERO */
 .hero {
-  background: linear-gradient(135deg, #ff6b9d, #c44569);
+  background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
   color: #fff;
-  padding: 80px 20px;
+  padding: 90px 20px 70px;
   text-align: center;
 }
-.stats { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin: 40px 0; }
-.stat span { font-size: 2.5rem; font-weight: 700; display: block; }
-.stat p { font-size: 0.9rem; opacity: 0.9; }
+.hero h1 { font-size: 3.2rem; font-weight: 800; }
+.subtitle { font-size: 1.2rem; opacity: 0.95; margin-bottom: 18px; }
+.lead { max-width: 640px; margin: 0 auto 40px; font-size: 1.1rem; }
 
+.stats {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 30px; margin: 40px auto; max-width: 1000px;
+}
+.stat {
+  background: rgba(255,255,255,0.12);
+  padding: 20px 24px; border-radius: 14px; min-width: 150px;
+  backdrop-filter: blur(6px);
+}
+.stat span { font-size: 2rem; font-weight: 800; display: block; }
+.stat p { font-size: 0.85rem; opacity: 0.9; margin: 6px 0 0; }
+
+/* Кнопки */
+.contact-buttons {
+  display: flex; gap: 15px; justify-content: center;
+  flex-wrap: wrap; margin: 30px 0;
+}
 .btn {
-  display: inline-block;
-  background: #fff;
-  color: #c44569;
-  padding: 16px 40px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 700;
-  transition: transform 0.2s;
+  display: inline-block; padding: 16px 34px; border-radius: 50px;
+  text-decoration: none; font-weight: 700; font-size: 1rem;
+  transition: transform 0.2s, background 0.2s; cursor: pointer;
 }
 .btn:hover { transform: scale(1.05); }
+.btn-call { background: #fff; color: #c44569; border: 2px solid #c44569; }
+.btn-call:hover { background: #c44569; color: #fff; }
+.btn-vk { background: #0077FF; color: #fff; border: none; }
+.btn-vk:hover { background: #0066dd; }
 
-section { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
-h2 { font-size: 2rem; margin-bottom: 30px; text-align: center; }
-
-.module, .card, .member {
-  background: #f7f7f7;
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 12px;
+/* Секции */
+section { max-width: 1000px; margin: 0 auto; padding: 60px 20px; }
+section ul { list-style: none; }
+section ul li {
+  padding: 12px 16px 12px 44px; position: relative;
+  background: #faf7f9; border-radius: 10px; margin-bottom: 10px;
+}
+section ul li::before {
+  content: '✓'; position: absolute; left: 16px; top: 12px;
+  color: #c44569; font-weight: 800;
 }
 
-.pricing { display: flex; gap: 20px; flex-wrap: wrap; }
-.card { flex: 1; min-width: 260px; text-align: center; }
+/* Программа */
+.module {
+  background: #faf7f9; padding: 20px 24px; border-left: 4px solid #c44569;
+  border-radius: 8px; margin-bottom: 12px;
+}
 
-details { background: #f7f7f7; padding: 15px; border-radius: 8px; margin-bottom: 10px; }
-summary { cursor: pointer; font-weight: 600; }
+/* Призы */
+.prizes { text-align: center; background: #fff7f9; }
+.prizes p { font-size: 1.05rem; }
 
-form { display: flex; flex-direction: column; gap: 12px; max-width: 400px; margin: 0 auto; }
-input, button { padding: 14px; border-radius: 8px; border: 1px solid #ddd; font-size: 1rem; }
-button { background: #c44569; color: #fff; border: none; cursor: pointer; }
+/* Команда */
+.team-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+.member {
+  background: #faf7f9; padding: 20px; border-radius: 12px;
+  text-align: center; font-weight: 600;
+}
+.member small { display: block; color: #888; font-weight: 400; margin-top: 6px; }
+
+/* FAQ */
+details {
+  background: #faf7f9; padding: 16px 20px; border-radius: 10px;
+  margin-bottom: 10px; cursor: pointer;
+}
+summary { font-weight: 600; list-style: none; }
+summary::after { content: '＋'; float: right; color: #c44569; }
+details[open] summary::after { content: '−'; }
+details p { margin-top: 12px; color: #555; }
+
+/* Футер */
+.order { text-align: center; background: #faf7f9; }
+.small { font-size: 0.85rem; color: #999; margin-top: 20px; }
+
+/* Мобилка */
+@media (max-width: 600px) {
+  .hero h1 { font-size: 2.2rem; }
+  h2 { font-size: 1.5rem; }
+  .stat { min-width: 120px; padding: 14px 16px; }
+  .stat span { font-size: 1.5rem; }
+  .btn { padding: 14px 26px; font-size: 0.95rem; }
+}
